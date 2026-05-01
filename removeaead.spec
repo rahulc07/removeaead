@@ -2,7 +2,7 @@
 %global kmod_name removeaead
 
 # If kmod_kernel_version isn't defined on the rpmbuild line, define it here.
-%{!?kmod_kernel_version: %define kmod_kernel_version %(uname -r | sed 's/\.x86_64//')}
+%{!?kmod_kernel_version: %define kmod_kernel_version %(uname -r | sed "s/\.$(uname -m)//")}
 
 %ifarch aarch64
 %define kbase kernel-64k
